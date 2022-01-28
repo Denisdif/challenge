@@ -9,4 +9,13 @@ class VoucherStatus extends Model
 {
     use HasFactory;
     protected $table ='voucher_status';
+
+    /**
+     * Relaciones
+     */
+
+    public function vouchers()
+    {
+        return $this->hasMany(Vouchers::class);
+    }
 }
