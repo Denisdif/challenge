@@ -16,7 +16,7 @@ class Voucher extends Model
 
     public function voucherStatus(){
 
-        return $this->belongsTo(Voucher_status::class, 'voucher_status_id');
+        return $this->belongsTo(VoucherStatus::class, 'voucher_status_id');
     }
 
     public function user(){
@@ -41,6 +41,6 @@ class Voucher extends Model
 
     public function paymentFile(){
 
-        return $this->belongsTo(Payment_file::class, 'payment_file_id');
+        return $this->belongsTo(PaymentFile::class, 'payment_file_id');
     }
 }

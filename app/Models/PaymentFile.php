@@ -21,7 +21,7 @@ class PaymentFile extends Model
 
     public function paymentFileStatus(){
 
-        return $this->belongsTo(payment_file_status::class, 'payment_file_status_id');
+        return $this->belongsTo(paymentFileStatus::class, 'payment_file_status_id');
     }
 
     public function user(){

@@ -16,6 +16,6 @@ class PaymentFileStatus extends Model
 
     public function paymentFiles()
     {
-        return $this->hasMany(Payment_file::class);
+        return $this->hasMany(PaymentFile::class);
     }
 }
