@@ -43,4 +43,35 @@ class Voucher extends Model
 
         return $this->belongsTo(PaymentFile::class, 'payment_file_id');
     }
+
+    /**
+     * Filtros
+     */
+
+    public function scopeNumber($query, $number){
+        if ($number)
+            return $query->where('number', '=', "$number");
+    }
+    public function scopeAccount($query, $account){
+        if ($account) {
+            return $query->join('organizations','vouchers.organization_id','=','organizations.id')
+                         ->select('vouchers.*','organizations.name')
+                         ->where('organizations.name', 'LIKE', "%$account%");
+        }
+    }
+    public function scopeDate($query, $start, $end){
+        if($start and $end)
+            return $query->whereBetween('issue_date', [$start,$end]);
+        if($start and $end == null)
+            return $query->where('issue_date', '>=' ,$start);
+        if($start == null and $end)
+            return $query->where('issue_date', '<=' ,$end);
+    }
+    public function scopeBrand($query, $brand){
+        if ($brand) {
+            return $query->join('companies','vouchers.company_id','=','companies.id')
+                         ->select('vouchers.*','companies.name')
+                         ->where('companies.name', '=', "$brand");
+        }
+    }
 }
