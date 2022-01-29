@@ -1,66 +1,75 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# Despliegue
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Tegnologías 
 
-## About Laravel
+Para el desarrollo de este challenge se utilizaron las siguientes tecnologías:
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+* Php 7.4.19
+* Apache 2.4.47
+* MySql 5.7.33
+* Node 14
+* Laravel 8.81.0
+* Bootstrap 5.1
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Recomiendo instalar [Laragon](https://laragon.org/) (v5.0.0), que precisamente fue la herramienta utilizada para este desarollo. La guía de instalación se puede encontrar en el sitio web oficial, al cual podrá acceder presionando sobre el enlace.
+## Administrador de dependencias
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Recomiendo la instalación de un administrador de dependencias para facilitar la instalación de las mismas y no tener que hacerlo de forma manual. Para este desarrollo se utilizó [Composer](https://getcomposer.org/) (v2.2.5). Nuevamente la guía de instalación se puede encontrar en el sitio web oficial, l cual podrá acceder presionando sobre el enlace.
 
-## Learning Laravel
+## Descarga del repositorio
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+El siguiente paso será descargar el [Repositorio](https://github.com/Denisdif/challenge), en el cual podremos encontrar el código fuente del challenge y un Script Sql para la base de datos.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Dependencias
 
-## Laravel Sponsors
+Una vez descargado el repositorio, podemos utilizar nuestra terminal favorita para posicionarnos en el directorio del proyecto. Una vez allí, debemos ejecutar el comando:
+```
+$ composer install
+```
+También recomiendo utilizar estos comandos de node:
+```
+$ npm install
+```
+```
+$ npm run dev
+```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+## Base de datos
 
-### Premium Partners
+Para generar la base de datos del challenge, simplemente debemos ejecutar el Script Sql ```challenge.sql``` desde una terminal o con nuestro gestor de base de datos favorito, en este caso recomiendo hacerlo con [Workbench](https://www.mysql.com/products/workbench/).
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[CMS Max](https://www.cmsmax.com/)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-- **[Romega Software](https://romegasoftware.com)**
+## .Env
 
-## Contributing
+Una vez generada nuestra base de datos, ya estamos listos para configurar nuestro archivo .Env.
+Recomiendo duplicar el archivo ```.envexample``` del repositorio y cambiarle el nombre a ```".env"```. Una vez realizado, procederemos a modificarlo:
+* DB_CONNECTION = ```motor de base de datos a utilizar, en este caso utilicé "mysql"```
+* DB_HOST = ```El host donde vamos a desplegar (127.0.0.1)```
+* DB_PORT = ```El puerto donde vamos a desplegar (3306)```
+* DB_DATABASE = ```Nombre de nuestra base de datos```
+* DB_USERNAME = ```Nombre de usuario mysql```
+* DB_PASSWORD = ```Contraseña de usuario mysql```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## Key generate
 
-## Code of Conduct
+Para desplegar nuestra aplcación, primero debemos generar una key a través del comando:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+```
+$ php artisan key:generate
+```
 
-## Security Vulnerabilities
+## Datos de prueba
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Para cargar datos de prueba para poder utilizar el sistema, se deben ejecutar los Factories de los distintos modelos. Para ello, utilizamos el comando:
 
-## License
+```
+$ php artisan db:seed  
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## Serve
+
+Para ejecutar el challenge debemos levantar nuestro servidor con Laragon o la herramienta que se esté utilizando y ejecutar el comando
+
+```
+$ php artisan serve  
+```
+Se podrá acceder al sistema con cualquier usuario generado por los factories ingresando el correo ```(generado aleatoriamente)``` y la contraseña ```12345678```.
