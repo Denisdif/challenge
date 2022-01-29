@@ -3,20 +3,20 @@
       <tr>
         <th >Voucher#</th>
         <th >CBA</th>
-        <th >Brand</th>
-        <th >Account Name</th>
-        <th >Issuer Name</th>
-        <th >Voucher Status</th>
-        <th >Past Due</th>
-        <th >Payment File</th>
-        <th >Customer Last Name</th>
-        <th >Confirmation #</th>
+        <th >@lang('mensajes.brand')</th>
+        <th >@lang('mensajes.accountName')</th>
+        <th >@lang('mensajes.issuerName')</th>
+        <th >@lang('mensajes.voucherStatus')</th>
+        <th >@lang('mensajes.pastDue')</th>
+        <th >@lang('mensajes.paymentFile')</th>
+        <th >@lang('mensajes.customerLastName')</th>
+        <th >@lang('mensajes.confirmation') #</th>
         <th >Issue IATA</th>
-        <th >Gross Amount</th>
-        <th >GSA Net Amount</th>
-        <th >ABG Net Amount</th>
-        <th >User</th>
-        <th >Create Date</th>
+        <th >@lang('mensajes.grossAmount')</th>
+        <th >@lang('mensajes.gsaNetAmount')</th>
+        <th >@lang('mensajes.abgNetAmount')</th>
+        <th >@lang('mensajes.user')</th>
+        <th >@lang('mensajes.createDate')</th>
       </tr>
     </thead>
     <tbody>

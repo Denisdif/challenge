@@ -6,12 +6,12 @@
         <div class="col-md-12">
             <div class="row">
                 <div class="col">
-                    <h1>View All Vouchers</h1>
+                    <h1>@lang('mensajes.title')</h1>
                 </div>
                 <div class="col">
                     <!-- Button trigger modal -->
                     <div class="float-end">
-                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exportModal">Export</button>
+                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exportModal">@lang('mensajes.export')</button>
                     </div>
                 </div>
             </div>
@@ -20,7 +20,7 @@
                     <form>
                         @include('filtros')
                         <div class="float-end">
-                            <button type="submit" class="btn btn-primary">Filtrar</button>
+                            <button type="submit" class="btn btn-primary">@lang('mensajes.filter')</button>
                         </div>
                     </form>
                 </div>
@@ -28,9 +28,9 @@
             <div class="card">
                 <div class="card-body" style="overflow-x: scroll;">
                     @include('vouchers_table')
-                    <div class="d-flex justify-content-center">
-                        {!! $vouchers->links() !!}
-                    </div>
+                </div>
+                <div class="d-flex justify-content-center">
+                    {!! $vouchers->links() !!}
                 </div>
             </div>
         </div>
