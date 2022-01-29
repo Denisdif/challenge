@@ -21,4 +21,12 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [VoucherController::class, 'index'])->name('home');
+Route::middleware(['auth'])->group(function () {
+    Route::get('/home', [VoucherController::class, 'index'])->name('home');
+
+    Route::get('/export', [VoucherController::class, 'export'])->name('export');
+
+});
+
+
+

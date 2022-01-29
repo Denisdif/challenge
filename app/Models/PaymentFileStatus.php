@@ -9,6 +9,7 @@ class PaymentFileStatus extends Model
 {
     use HasFactory;
     protected $table ='payment_file_status';
+    public $timestamps = false;
     
     /**
      * Relaciones

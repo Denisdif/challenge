@@ -9,6 +9,7 @@ class VoucherStatus extends Model
 {
     use HasFactory;
     protected $table ='voucher_status';
+    public $timestamps = false;
 
     /**
      * Relaciones
