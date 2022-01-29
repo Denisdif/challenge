@@ -17,7 +17,7 @@ class PaymentFileStatusFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->randomElement(['Confirmed', 'No sé, otro estado']),
+            'name' => $this->faker->randomElement(['Confirmed', 'Otro estado']),
             'display_order' => $this->faker->numerify('########'),
         ];
     }

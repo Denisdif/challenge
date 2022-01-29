@@ -14,7 +14,7 @@ class VoucherController extends Controller
                             ->date($request->create_date_start, $request->create_date_end)
                             ->brand($request->brand)
                             ->orderBy('id','desc')
-                            ->paginate(10);
+                            ->paginate(5);
         return view('home',compact('vouchers'));
     }
 

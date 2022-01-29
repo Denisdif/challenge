@@ -28,8 +28,8 @@
                 <td>{{$item->gsaOrganization->name}}</td>
                 <td>{{$item->organization->name}}</td>
                 <td>{{$item->voucherStatus->name}}</td>
-                <td>{{$item->past_due}}</td>
-                <td>{{$item->paymentFile ? $item->paymentFile->paymentFileStatus->name : ""}}</td>
+                <td>{{$item->past_due == 1 ? "Past Due" : ""}}</td>
+                <td>{{$item->paymentFile ? $item->paymentFile->paymentFileStatus->name : "-"}}</td>
                 <td>{{$item->booking ? $item->booking->last_name : ""}}</td>
                 <td>{{$item->booking ? $item->booking->number : ""}}</td>
                 <td>{{$item->iata_code}}</td>

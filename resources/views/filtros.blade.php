@@ -17,10 +17,10 @@
     </div>
     <div class="mb-3 col">
         <label for="create_date_start" class="form-label">@lang('mensajes.createDateStart')</label>
-        <input type="date" class="form-control" id="create_date_start" name="create_date_start">
+        <input type="date" class="form-control" id="create_date_start" name="create_date_start" max="{{ Carbon\Carbon::now()->format('Y-m-d') }}">
     </div>
     <div class="mb-3 col">
         <label for="create_date_end" class="form-label">@lang('mensajes.createDateEnd')</label>
-        <input type="date" class="form-control" id="create_date_end" name="create_date_end">
+        <input type="date" class="form-control" id="create_date_end" name="create_date_end" max="{{ Carbon\Carbon::now()->format('Y-m-d') }}">
     </div>
 </div>
