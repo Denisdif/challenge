@@ -25,7 +25,7 @@
                     </form>
                 </div>
             </div>
-            <div class="card" style="margin-top: 2%">
+            <div class="card myStyleCard">
                 <div class="card-body" style="overflow-x: scroll;">
                     @include('vouchers_table')
                 </div>
